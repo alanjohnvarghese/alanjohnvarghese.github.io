@@ -82,6 +82,61 @@
           bog_stop()
         </script>
       </td> -->
+
+<tr onmouseout="tonic_stop()" onmouseover="tonic_start()">
+  <td style="padding:16px;width:20%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='tonic_image'><video  width="160" height="160" muted autoplay loop>
+      <source src="images/swarm_animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video></div>
+      <img src='images/Image.png' width="160">
+    </div>
+    <script type="text/javascript">
+      function tonic_start() {
+        document.getElementById('tonic_image').style.opacity = "1";
+      }
+
+      function tonic_stop() {
+        document.getElementById('tonic_image').style.opacity = "0";
+      }
+      tonic_stop()
+    </script>
+  </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        <a href="https://arxiv.org/abs/2605.14332">
+          <span class="papertitle">PI-SONet: A Physics-Informed Symplectic Operator Network for Real-Time Optimal Control of Multi-Agent Systems
+
+</span>
+        </a>
+        <br>
+				Alan John Varghese*,
+		  		Shanqing Liu*,
+		   		Paula Chen*,
+		  		Yaochen Zhu,
+		  		J´erˆome Darbon,
+		  		George Karniadakis
+        <br>
+        <em>arXiv</em>, 2026
+        <br>
+        <!--<a href="https://creiser.github.io/binary_opacity_grid/">project page</a>
+        /
+        <a href="https://www.youtube.com/watch?v=2TPUmGRg8bM">video</a>
+        /-->
+        <a href="https://arxiv.org/abs/2605.14332">arXiv</a>
+        <p></p>
+        <p>
+        PI-SONet is a structure-preserving neural operator enabling real-time optimal control in high-dimensional systems.
+        </p>
+      </td>
+    </tr>
+			  
+
+
+
+
+
+			  
 <tr onmouseout="sympgnn_stop()" onmouseover="sympgnn_start()">
   <td style="padding:16px;width:20%;vertical-align:middle">
     <div class="one">
