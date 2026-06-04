@@ -55,6 +55,56 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+
+
+
+
+
+
+    <tr onmouseout="bog_stop()" onmouseover="bog_start()">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='bog_image'><video  width=100% muted autoplay loop>
+          <source src="images/bog.jpg" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/bog.jpg' width=100%>
+        </div>
+        <script type="text/javascript">
+          function bog_start() {
+            document.getElementById('bog_image').style.opacity = "1";
+          }
+
+          function bog_stop() {
+            document.getElementById('bog_image').style.opacity = "0";
+          }
+          bog_stop()
+        </script>
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S089360802500276X">
+          <span class="papertitle">SympGNNs: Symplectic Graph Neural Networks for identifying high-dimensional Hamiltonian systems and node classification
+</span>
+        </a>
+        <br>
+				Alan John Varghese*
+		  		Zhen Zhang*
+		   		George Karniadakis
+        <br>
+        <em>Neural Networks</em>, 2025
+        <br>
+        <!--<a href="https://creiser.github.io/binary_opacity_grid/">project page</a>
+        /
+        <a href="https://www.youtube.com/watch?v=2TPUmGRg8bM">video</a>
+        /-->
+        <a href="https://arxiv.org/abs/2408.16698">arXiv</a>
+        <p></p>
+        <p>
+        SympGNN is a graph neural network designed to learn the behavior of physical systems while preserving their underlying geometric and energy-based structure.
+        </p>
+      </td>
+    </tr>
+
 <!--
 <tr onmouseout="vbanana_stop()" onmouseover="vbanana_start()" bgcolor="#ffffd0">
   <td style="padding:16px;width:20%;vertical-align:middle">
