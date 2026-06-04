@@ -39,9 +39,33 @@
                   <a href="https://github.com/alanjohnvarghese/">Github</a>
                 </p>
               </td>
+			<!--	
               <td style="padding:2.5%;width:37%;max-width:37%">
                 <a href="images/alan-text-art.png"><img style="width:100%;max-width:100%;object-fit: cover;" alt="profile photo" src="images/alan-text-art.png" class="hoverZoomLink"></a>
               </td>
+			-->
+			<tr onmouseout="profile_stop()" onmouseover="profile_start()">
+      <td style="padding:2.5%;width:37%;max-width:37%">
+        <div class="one">
+          <div class="two" id='profile_image'><video  width=100% muted autoplay loop>
+          <source src="images/brown_website_photo.png" type="video/mp4">
+          Your browser does not support the video tag.
+          </video></div>
+          <img src='images/alan-text-art.png' width=100%>
+        </div>
+        <script type="text/javascript">
+          function profile_start() {
+            document.getElementById('profile_image').style.opacity = "1";
+          }
+
+          function profile_stop() {
+            document.getElementById('profile_image').style.opacity = "0";
+          }
+          profile_stop()
+        </script>
+      </td>
+		</tr>
+			  <!--    sdfsdfsdfdsfs  -->
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
