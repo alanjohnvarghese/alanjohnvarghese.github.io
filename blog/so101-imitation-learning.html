@@ -18,14 +18,14 @@
 <p>Direct observation helped me judge when to close the gripper. During inference, the policy would have to make that decision from the camera images and joint positions alone. I wanted to see whether those inputs provided enough information for a reliable grasp.</p>
 <p>Before recording, I also had to fix the external camera’s exposure. The white box and parts of the arm blended into patches of white. I selected the external camera in CameraController on macOS and lowered the exposure manually until I could distinguish the box rim and gripper again. <a href="https://github.com/itaybre/CameraController">CameraController</a></p>
 <figure class="media-slot">
-<img src="./images/before_after_camera.png" alt="EvaluationObject" loading="lazy" >
+<img src="../images/before_after_camera.png" alt="EvaluationObject" loading="lazy" >
 <figcaption>
 Before and after adjusting exposure, with the box rim and gripper visible in the same workspace.
 </figcaption>
 </figure>
 <p>I recorded <strong>50 complete demonstrations comprising 23,622 frames</strong>, with both cameras configured for 640 × 480 at 30 FPS. Each episode contained one successful pickup and placement. There were no examples of missing the object and coming back for another grasp. The 50 autonomous trials described below were separate from these 50 demonstrations.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="./images/training-demonstration-side-by-side.mp4" type="video/mp4"></video>
+<<video controls playsinline preload="metadata"><source src="../images/training-demonstration-side-by-side.mp4" type="video/mp4"></video>
 <figcaption>
 One complete teleoperated pickup and placement. The external and wrist views can be shown side by side.
 </figcaption>
@@ -38,7 +38,7 @@ One complete teleoperated pickup and placement. The external and wrist views can
 <h2 id="training-and-deploying-the-policy">Training and deploying the policy</h2>
 <p>I used LeRobot 0.6.2 for training. The model had approximately 51.6 million trainable parameters. I used a batch size of 8, a learning rate of <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mo>−</mo><mn>5</mn></mrow></msup><annotation encoding="application/x-tex">10^{-5}</annotation></semantics></math>, and an ImageNet-pretrained visual backbone. Image augmentation was disabled. I configured the run for 100,000 optimizer updates, saving a checkpoint every 5,000 steps.</p>
 <figure class="media-slot">
-<img src="./images/act_training_loss.png" alt="EvaluationObject" loading="lazy" >
+<img src="../images/act_training_loss.png" alt="EvaluationObject" loading="lazy" >
 <figcaption>
 The logged loss against optimizer step. The reconstruction and KL terms are shown separately. The checkpoint at 100k steps is used for evaluation.
 </figcaption>
@@ -116,7 +116,7 @@ Mac rollout command for a 20-second deployment test
 </table>
 <p>The arm completed <strong>32/50 trials (64%)</strong>. Of the 34 trials in which it lifted the object, 32 ended in successful placement. In the other two, it took several attempts to get the object off the table and time ran out. A common failure was to touch the object without securing it. In three trials I specifically noted that this contact moved the object and made the next attempt harder.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="./images/clean_pick.mp4" type="video/mp4"></video>
+<<video controls playsinline preload="metadata"><source src="../images/clean_pick.mp4" type="video/mp4"></video>
 <figcaption>
 A separately recorded example showing the first approach, grasp, lift, and release into the box in one continuous shot.
 </figcaption>
@@ -126,7 +126,7 @@ A separately recorded example showing the first approach, grasp, lift, and relea
 <p>I was surprised that four trials ended in a successful placement after an initial miss, since all 50 demonstrations contained a single clean grasp. In trial 12, the arm missed once and grasped successfully on the second attempt. In trial 5, it missed on the first attempt, touched the object on the second, and lifted and placed it on the third.</p>
 <p>My interpretation is that, when ACT predicts a new action chunk, an object still on the table and a gripper near it may resemble the approach phase of a demonstration. Under those conditions, the policy could predict another grasp. In other trials, contact displaced the object and subsequent attempts also failed. I documented these behaviors in written notes. The evaluation sessions were not filmed, so I cannot determine whether a particular retry coincided with a new prediction or which observation prompted it.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="./images/retry_pick.mp4" type="video/mp4"></video>
+<<video controls playsinline preload="metadata"><source src="../images/retry_pick.mp4" type="video/mp4"></video>
 <figcaption>
 A separately recorded example showing the initial two misses and successful grasp and drop in third attempt in one continuous shot. Here, we used the orange object.
 </figcaption>
@@ -134,7 +134,7 @@ A separately recorded example showing the initial two misses and successful gras
 <h2 id="evaluation-with-an-orange-object">Evaluation with an orange object</h2>
 <p>For a follow-up evaluation, I used an orange object of similar size and material. Given that the demonstrations involved only the original object, I was surprised that the policy completed four of the ten trials with the orange object. Three were clean placements, and one followed a missed grasp.</p>
 <figure class="media-slot">
-<img src="./images/evaluation-objects.png" alt="EvaluationObject" loading="lazy" style="width: 450px; max-width: 100%; height: auto; margin: 0 auto;">
+<img src="../images/evaluation-objects.png" alt="EvaluationObject" loading="lazy" style="width: 450px; max-width: 100%; height: auto; margin: 0 auto;">
 <figcaption>
 Side-by-side photograph of the original and orange objects.
 </figcaption>
