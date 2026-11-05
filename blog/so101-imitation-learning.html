@@ -25,7 +25,7 @@ Before and after adjusting exposure, with the box rim and gripper visible in the
 </figure>
 <p>I recorded <strong>50 complete demonstrations comprising 23,622 frames</strong>, with both cameras configured for 640 × 480 at 30 FPS. Each episode contained one successful pickup and placement. There were no examples of missing the object and coming back for another grasp. The 50 autonomous trials described below were separate from these 50 demonstrations.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="../images/training-demonstration-side-by-side.mp4" type="video/mp4"></video>
+<video controls playsinline preload="metadata"><source src="../images/training-demonstration-side-by-side.mp4" type="video/mp4"></video>
 <figcaption>
 One complete teleoperated pickup and placement. The external and wrist views can be shown side by side.
 </figcaption>
@@ -116,7 +116,7 @@ Mac rollout command for a 20-second deployment test
 </table>
 <p>The arm completed <strong>32/50 trials (64%)</strong>. Of the 34 trials in which it lifted the object, 32 ended in successful placement. In the other two, it took several attempts to get the object off the table and time ran out. A common failure was to touch the object without securing it. In three trials I specifically noted that this contact moved the object and made the next attempt harder.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="../images/clean_pick.mp4" type="video/mp4"></video>
+<video controls playsinline preload="metadata"><source src="../images/clean_pick.mp4" type="video/mp4"></video>
 <figcaption>
 A separately recorded example showing the first approach, grasp, lift, and release into the box in one continuous shot.
 </figcaption>
@@ -126,7 +126,7 @@ A separately recorded example showing the first approach, grasp, lift, and relea
 <p>I was surprised that four trials ended in a successful placement after an initial miss, since all 50 demonstrations contained a single clean grasp. In trial 12, the arm missed once and grasped successfully on the second attempt. In trial 5, it missed on the first attempt, touched the object on the second, and lifted and placed it on the third.</p>
 <p>My interpretation is that, when ACT predicts a new action chunk, an object still on the table and a gripper near it may resemble the approach phase of a demonstration. Under those conditions, the policy could predict another grasp. In other trials, contact displaced the object and subsequent attempts also failed. I documented these behaviors in written notes. The evaluation sessions were not filmed, so I cannot determine whether a particular retry coincided with a new prediction or which observation prompted it.</p>
 <figure class="media-slot">
-<<video controls playsinline preload="metadata"><source src="../images/retry_pick.mp4" type="video/mp4"></video>
+<video controls playsinline preload="metadata"><source src="../images/retry_pick.mp4" type="video/mp4"></video>
 <figcaption>
 A separately recorded example showing the initial two misses and successful grasp and drop in third attempt in one continuous shot. Here, we used the orange object.
 </figcaption>
