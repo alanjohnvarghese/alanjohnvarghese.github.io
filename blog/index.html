@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Alan John Varghese</title>
+  <meta name="description" content="Notes on robotics, imitation learning, and building experiments by Alan John Varghese.">
+  <meta name="author" content="Alan John Varghese">
+  <style>
+    @font-face {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local('Lato Regular'), local('Lato-Regular'), url('https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2') format('woff2');
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: #181818; font-family: Lato, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.65; }
+    main { max-width: 1000px; margin: auto; padding: 36px 24px 64px; }
+    a { color: #1772d0; text-decoration: none; }
+    a:hover { color: #bd6510; text-decoration: underline; }
+    a:focus-visible, video:focus-visible { outline: 2px solid #1772d0; outline-offset: 5px; }
+    nav { font-size: 13px; }
+    header { margin: 38px 0 32px; }
+    h1 { font-size: 32px; font-weight: 400; line-height: 1.25; margin: 0 0 12px; }
+    header p { margin: 0; color: #666; }
+    .year { font-size: 23px; font-weight: 400; margin: 0 0 24px; padding-bottom: 10px; border-bottom: 1px solid #ddd; }
+    .posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+    article { min-width: 0; }
+    .preview { margin: 0 0 15px; }
+    video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #f4f4f4; border-radius: 4px; }
+    .video-fallback { min-height: 110px; padding: 30px 20px; background: #f4f4f4; border-radius: 4px; color: #666; }
+    h3 { font-size: 18px; line-height: 1.45; margin: 0 0 7px; font-weight: 600; }
+    .date { font-size: 13px; color: #666; margin: 0 0 10px; }
+    .description { color: #444; margin: 0; font-size: 14px; }
+    footer { margin-top: 54px; padding-top: 18px; border-top: 1px solid #e6e6e6; color: #666; font-size: 13px; }
+    @media (max-width: 620px) {
+      main { padding: 24px 20px 40px; }
+      header { margin-top: 30px; }
+      .posts { grid-template-columns: 1fr; gap: 34px; }
+      h1 { font-size: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+<main>
+  <nav aria-label="Site navigation"><a href="../index.html">← Back to home</a></nav>
+  <header>
+    <h1>Blog</h1>
+    <p>Some notes from my experiments.</p>
+  </header>
+  <section aria-labelledby="year-2026">
+    <h2 class="year" id="year-2026">2026</h2>
+    <div class="posts">
+      <article aria-labelledby="act-title">
+        <div class="preview">
+          <!-- Put clean_pick-compressed.mp4 in the website's root images folder,
+               or change this source to the video's existing location.
+               Add poster="../images/your-thumbnail.jpg" for a thumbnail before playback. -->
+          <video controls playsinline preload="metadata" aria-label="Autonomous pick-and-place demonstration">
+            <source src="../images/clean_pick.mp4" type="video/mp4">
+            <a href="../images/clean_pick.mp4">Watch the autonomous demonstration</a>
+          </video>
+        </div>
+        <h3 id="act-title"><a href="./so101-imitation-learning.html">Imitation learning for pick-and-place with ACT on the SO-101</a></h3>
+        <p class="date"><time datetime="2026-10">October 2026</time></p>
+        <p class="description">Collecting 50 demonstrations, training an Action Chunking Transformer, and evaluating grasping, repeated attempts, and performance with a different-colored object.</p>
+      </article>
+      <article aria-labelledby="setup-title">
+        <div class="preview">
+          <!-- This source matches the video path in the previous setup post. -->
+          <video controls playsinline preload="metadata" poster="../images/setup.jpg" aria-label="SO-101 leader and follower teleoperation">
+            <source src="../images/teleoperation.mp4" type="video/mp4">
+            <a href="../images/teleoperation.mp4">Watch the teleoperation demonstration</a>
+          </video>
+        </div>
+        <h3 id="setup-title"><a href="./so101-setup.html">Getting started with the SO-101 and LeRobot</a></h3>
+        <p class="date"><time datetime="2026-10">October 2026</time></p>
+        <p class="description">Setting up the leader and follower arms on macOS, resolving calibration issues, and recording a first demonstration with external and wrist cameras.</p>
+      </article>
+    </div>
+  </section>
+  <footer>Alan John Varghese · <a href="../index.html">Homepage</a></footer>
+</main>
+<script>
+  // Keep the listing usable when an optional video has not been uploaded.
+  document.querySelectorAll('video').forEach(function (video) {
+    var source = video.querySelector('source');
+    function showFallback() {
+      var message = document.createElement('p');
+      message.className = 'video-fallback';
+      message.textContent = 'Read the post below for the experiment and results.';
+      video.replaceWith(message);
+    }
+    video.addEventListener('error', showFallback, { once: true });
+    source.addEventListener('error', showFallback, { once: true });
+  });
+</script>
+</body>
+</html>
